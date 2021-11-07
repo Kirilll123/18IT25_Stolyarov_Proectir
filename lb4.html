@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Лаба 4</title>
+    <meta charset="utf-8">
+</head>
+<body>
+    <script type="text/javascript">
+        var str = prompt("Введите текст: "); //Создаем переменную, куда запишем текст
+        var word = prompt("Введите слово: "); //Создаем переменную, куда запишем слово
+        var arr=str.split(/\.|!|\?/);//разделяем строку на массив по знакам препинания
+        var vspArr = [...arr];
+        for( var i=0; i<vspArr.length; i++){//перебираем элементы
+            var kolvo=0;
+            while(arr[i].length>1){
+                if((arr[i].toLowerCase()).includes(word)){//берем элемент-предложение, опускаем его в нижний регистр, проверяем, включает ли в себя нужное слово
+                kolvo++;
+                var ind = arr[i].toLowerCase().indexOf(word);
+                arr[i]=arr[i].slice(ind+word.length-1);
+                console.log(arr[i]);
+                }
+                else{
+                    arr[i]="";
+                }
+            }
+            vspArr[i]=vspArr[i]+" "+kolvo;
+        }
+        vspArr.pop();
+        console.log(vspArr);
+        alert(vspArr);
+        //Привет! Как дела? Привет, привет, привет.
+    </script>
+</body>
+</html>

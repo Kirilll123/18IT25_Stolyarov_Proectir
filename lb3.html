@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Лаба 3</title>
+    <meta charset="utf-8">
+    <script type="text/javascript">
+        //функция для создания массива пользователем
+        function formMas(){
+            var n = Number(prompt("Введите количество элементов:"));
+            var nMas = [];
+            for(var i=0; i<n; i++){
+                nMas[i]=Number(prompt("Введите число:"));
+            }
+            return nMas;
+        }
+
+        //функция для поиска индекса последнего нуля
+        function findMinInd(mas){
+            var min=0;
+            for(var i=1; i<mas.length; i++){
+                if(mas[i]<mas[min]){
+                    min=i;
+                }
+            }
+            return min;
+        }
+        
+        var massiv = formMas();
+        
+        //подсчет количества положительных элементов в массиве
+        var sumOfPol = 0;
+        for(var i=0; i<massiv.length; i++){
+            if (massiv[i]>0) {
+                sumOfPol++;
+            }
+        }
+
+        //подсчет суммы чисел после последнего нулевого элемента
+        var last0El;
+        for( var i=massiv.length; i>0; i--){
+            if(massiv[i]==0){
+                last0El=i;
+                break;
+            }
+        }
+        var sum = 0;
+        for(var k = last0El+1; k<massiv.length; k++){
+            sum+=(massiv[k]);
+        }
+
+
+
+        //Массив, где сначала все элементы, целая часть которых не превышает 1, а потом всё остальное
+        var firstM = [];
+        var secM = [];
+        for( var m = 0; m<massiv.length; m++){
+            if(Math.trunc(massiv[m])<=1){
+                firstM.push(massiv[m]);
+            }
+            else{
+                secM.push(massiv[m]);
+            }
+        }
+        var massiv = firstM.concat(secM);
+
+        var str = massiv.join("; ");
+        document.writeln("Количество положительных элементов в массиве "+sumOfPol+"; Сумма модулей чисел после последнего нулевого элемента равна "+sum+"; Массив, где сначала все элементы, целая часть которых не превышает 1, а потом всё остальное: "+str);
+    </script>
+</head>
+<body>
+</body>
+</html>
