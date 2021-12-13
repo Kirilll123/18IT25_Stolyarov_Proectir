@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Лаба 8</title>
+    <meta charset="utf-8">
+</head>
+<body style='background-color: white; color: black' class = "myBody">
+<h1>Лабараторная работа №8</h1>
+<h2>Выполнил Столяров Кирилл</h2>
+<h3><a href="https://www.yandex.ru/" class="myA">Ссылка с неизвесным направлением</a></h3>
+    <script type="text/javascript">
+        var a = prompt("Желаемый цвет фона:");
+        var b = prompt("Желаемый цвет текста:");
+        var c = prompt("Желаемая ссылка");
+        var bodyU = document.querySelector("body.myBody");
+        bodyU.setAttribute("style", `background-color:${a}`);
+        var root = document.documentElement;
+        root.style.color = b;
+        var ancor = document.querySelector("a.myA");
+        ancor.setAttribute("href", `${c}`);
+    </script>
+</body>
+</html>
